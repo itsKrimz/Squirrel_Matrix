@@ -1,0 +1,164 @@
+/* Terminal-Style CSS with Scrolling Support */
+
+body {
+    background-color: #000; /* True black background */
+    color: #00ff00; /* Bright green text color */
+    font-family: "Courier New", Courier, monospace; /* Fixed-width font */
+    display: block; /* Change from flex to block layout */
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden; /* Hide horizontal overflow if any */
+}
+
+.terminal {
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.9); /* Slight transparency to blend with matrix background */
+    padding: 20px;
+    border: 3px solid #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    text-align: left;
+    margin: 20px auto; /* Center terminal and add spacing for scroll */
+    z-index: 1; /* Ensure terminal content is above background */
+}
+
+/* Matrix Background Effect */
+body::before {
+    content: '';
+    position: fixed; /* Fixed position for full-screen background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        rgba(0, 255, 0, 0.1) 0px,
+        rgba(0, 255, 0, 0.1) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    z-index: -1;
+}
+
+/* Streak Animation for Random Falling Lines */
+@keyframes matrix-streak {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+}
+
+/* Streak Elements with Randomized Timing */
+.matrix-streak {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100vh;
+    background-color: #00ff00;
+    opacity: 0;
+    animation: matrix-streak 3s linear infinite;
+}
+
+.matrix-streak:nth-child(2n) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 3.5s;
+}
+
+.matrix-streak:nth-child(3n) {
+    left: 30%;
+    animation-delay: 1.5s;
+    animation-duration: 4s;
+}
+
+.matrix-streak:nth-child(4n) {
+    left: 50%;
+    animation-delay: 2s;
+    animation-duration: 5s;
+}
+
+.matrix-streak:nth-child(5n) {
+    left: 70%;
+    animation-delay: 2.5s;
+    animation-duration: 3.5s;
+}
+
+.matrix-streak:nth-child(6n) {
+    left: 90%;
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+
+/* Additional Existing Styles */
+h1, h2, p {
+    margin: 10px 0;
+}
+
+.nut-counter {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffdd00; /* Yellow text for nut counter */
+}
+
+.ascii-art {
+    white-space: pre;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #00ff00;
+}
+
+.cyber-info-box {
+    border: 1px solid #00ff00;
+    padding: 15px;
+    margin: 15px 0;
+    color: #00ff00;
+}
+
+.status-box {
+    border: 1px solid #00ff00;
+    padding: 15px;
+    color: #00ff00;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.button {
+    background-color: #00ff00;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #ffdd00;
+    color: #000;
+}
+
+.warning {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 10px #00ff00; }
+    50% { text-shadow: 0 0 20px #ffdd00; }
+}
+
+.glow {
+    animation: glow 2s infinite;
+}
+
+.cooldown-text-ready {
+    color: #ffdd00;
+    font-weight: bold;
+}
