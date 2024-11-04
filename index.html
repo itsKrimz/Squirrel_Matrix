@@ -46,8 +46,20 @@
             </div>
             <button class="button" onclick="increaseNutCount()">Collect Nut</button>
         </div>
+
+        <!-- Power-ups Section -->
+        <div class="power-ups">
+            <h2>Power-Ups</h2>
+            <button class="button" onclick="buyPowerUp('acornHarvester')">Buy Acorn Harvester (Cost: <span id="harvester-cost">10</span> Nuts)</button>
+            <button class="button" onclick="buyPowerUp('quantumProcessor')">Upgrade Quantum Processor (Cost: <span id="processor-cost">50</span> Nuts)</button>
+        </div>
+
+        <!-- Automation Upgrades Section -->
+        <div class="automation">
+            <h2>Automation</h2>
+            <p>Nut Collection Rate: <span id="nuts-per-second">0</span> nuts per second</p>
+        </div>
     </div>
-	
 
     <script src="script.js"></script>
 </body>
