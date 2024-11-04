@@ -1,4 +1,4 @@
-/* Terminal-Style CSS with Scrolling Support */
+/* Terminal-Style CSS with Enhanced Collect Nut Button */
 
 body {
     background-color: #000; /* True black background */
@@ -95,7 +95,7 @@ body::before {
     animation-duration: 3s;
 }
 
-/* Additional Existing Styles */
+/* Text Styling */
 h1, h2, p {
     margin: 10px 0;
 }
@@ -128,34 +128,86 @@ h1, h2, p {
     margin-top: 20px;
 }
 
+/* Enhanced "Collect Nut" Button Styling */
 .button {
-    background-color: #00ff00;
-    color: #000000;
-    padding: 10px 20px;
-    border: none;
+    background-color: #00ff00; /* Bright green background */
+    color: #000000; /* Black text for contrast */
+    padding: 12px 24px;
+    border: 2px solid #00ff00;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 8px;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6), 0 0 20px rgba(0, 255, 0, 0.4);
 }
 
+/* Hover effect: glowing and scale */
 .button:hover {
-    background-color: #ffdd00;
-    color: #000;
+    background-color: #33ff33;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8), 0 0 25px rgba(0, 255, 0, 0.6);
 }
 
+/* Disabled button style during cooldown */
+.button:disabled {
+    background-color: #004d00; /* Darker green for disabled state */
+    color: #808080; /* Gray text to indicate inactivity */
+    cursor: not-allowed;
+    box-shadow: none;
+    border-color: #004d00;
+}
+
+/* Cooldown pulse animation */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.button.cooldown-pulse {
+    animation: pulse 1s infinite; /* Pulses every second */
+}
+
+/* Add spacing for new sections */
+.power-ups, .automation {
+    margin-top: 20px;
+}
+
+.power-ups h2, .automation h2 {
+    color: #00ff00;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Warning Text */
 .warning {
     color: #ff0000;
     font-weight: bold;
 }
 
-@keyframes glow {
-    0%, 100% { text-shadow: 0 0 10px #00ff00; }
-    50% { text-shadow: 0 0 20px #ffdd00; }
+/* Glitch Animation for Text */
+@keyframes glitch-flicker {
+    0% { opacity: 1; transform: translate(0, 0); }
+    20% { opacity: 0.8; transform: translate(-1px, 1px); }
+    40% { opacity: 1; transform: translate(1px, -1px); }
+    60% { opacity: 0.9; transform: translate(-1px, -1px); }
+    80% { opacity: 1; transform: translate(1px, 1px); }
+    100% { opacity: 1; transform: translate(0, 0); }
 }
 
-.glow {
-    animation: glow 2s infinite;
+.glitch {
+    animation: glitch-flicker 0.4s infinite alternate;
+}
+
+@keyframes glitch-color {
+    0% { color: #00ff00; }
+    33% { color: #ffdd00; }
+    66% { color: #ff3333; }
+    100% { color: #00ff00; }
+}
+
+.glitch-color {
+    animation: glitch-color 1.5s infinite;
 }
 
 .cooldown-text-ready {
