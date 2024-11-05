@@ -133,17 +133,17 @@ function earnNutsForAction(action) {
         case 'twitterFollow':
             reward = 50;
             url = "https://x.com/TTVitsKrimz";
-            button = document.querySelector(".social-action[onclick*='twitterFollow']");
+            button = document.querySelector(".social-action-btn[onclick*='twitterFollow']");
             break;
         case 'telegram':
             reward = 75;
             url = "https://telegram.org/";
-            button = document.querySelector(".social-action[onclick*='telegram']");
+            button = document.querySelector(".social-action-btn[onclick*='telegram']");
             break;
         case 'twitterPost':
             reward = 100;
             url = "http://twitter.com/share?url=I+played+the+Squirrel+Matrix+and+am+earning+%24NUTS.+Join+me%3A+https%3A%2F%2Fitskrimz.github.io%2FSquirrel_Matrix%2F";
-            button = document.querySelector(".social-action[onclick*='twitterPost']");
+            button = document.querySelector(".social-action-btn[onclick*='twitterPost']");
             break;
     }
 
@@ -162,9 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutomation();
     updatePowerUpButtons();
 
-    // Ensure all social buttons are enabled and not greyed out initially
-    document.querySelectorAll('.social-action').forEach(button => {
-        button.disabled = false;
-        button.classList.remove('disabled');
+    // Ensure all social-action-btn buttons are enabled and not greyed out initially
+    document.querySelectorAll('.social-action-btn').forEach(button => {
+        button.disabled = false; // Ensure social buttons start enabled
+        button.classList.remove('disabled'); // Remove disabled styling if applied
     });
 });
