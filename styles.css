@@ -22,80 +22,37 @@ body {
     z-index: 1; /* Ensure terminal content is above background */
 }
 
-/* Matrix Background Effect */
-body::before {
-    content: '';
-    position: fixed; /* Fixed position for full-screen background */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        rgba(0, 255, 0, 0.1) 0px,
-        rgba(0, 255, 0, 0.1) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    z-index: -1;
+/* Glitch Animation for Text */
+@keyframes glitch-flicker {
+    0% { opacity: 1; transform: translate(0, 0); }
+    20% { opacity: 0.9; transform: translate(-1px, 1px); }
+    40% { opacity: 1; transform: translate(1px, -1px); }
+    60% { opacity: 0.9; transform: translate(-1px, -1px); }
+    80% { opacity: 1; transform: translate(1px, 1px); }
+    100% { opacity: 1; transform: translate(0, 0); }
 }
 
-/* Streak Animation for Random Falling Lines */
-@keyframes matrix-streak {
-    0% {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(100vh);
-    }
+@keyframes glitch-color {
+    0% { color: #00ff00; }
+    33% { color: #ffdd00; }
+    66% { color: #ff3333; }
+    100% { color: #00ff00; }
 }
 
-/* Streak Elements with Randomized Timing */
-.matrix-streak {
-    position: absolute;
-    top: 0;
-    width: 2px;
-    height: 100vh;
-    background-color: #00ff00;
-    opacity: 0;
-    animation: matrix-streak 3s linear infinite;
+.glitch {
+    animation: glitch-flicker 0.4s infinite alternate;
 }
 
-.matrix-streak:nth-child(2n) {
-    left: 10%;
-    animation-delay: 0s;
-    animation-duration: 3.5s;
+.glitch-color {
+    animation: glitch-color 1.5s infinite;
 }
 
-.matrix-streak:nth-child(3n) {
-    left: 30%;
-    animation-delay: 1.5s;
-    animation-duration: 4s;
+.cooldown-text-ready {
+    color: #ffdd00;
+    font-weight: bold;
 }
 
-.matrix-streak:nth-child(4n) {
-    left: 50%;
-    animation-delay: 2s;
-    animation-duration: 5s;
-}
-
-.matrix-streak:nth-child(5n) {
-    left: 70%;
-    animation-delay: 2.5s;
-    animation-duration: 3.5s;
-}
-
-.matrix-streak:nth-child(6n) {
-    left: 90%;
-    animation-delay: 1s;
-    animation-duration: 3s;
-}
-
-/* Text Styling */
+/* Additional Styling for Elements */
 h1, h2, p {
     margin: 10px 0;
 }
@@ -142,6 +99,11 @@ h1, h2, p {
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.6), 0 0 20px rgba(0, 255, 0, 0.4);
 }
 
+.button.glitch {
+    animation: glitch-flicker 1s infinite alternate;
+}
+
+
 /* Hover effect: glowing and scale */
 .button:hover {
     background-color: #33ff33;
@@ -158,71 +120,17 @@ h1, h2, p {
     border-color: #004d00;
 }
 
-/* Disabled Power-Up Button Style */
-.button.disabled {
-    background-color: #333; /* Darker background for unavailable button */
-    color: #555; /* Muted text color */
-    cursor: not-allowed;
-    box-shadow: none;
-    border-color: #333;
-}
-
-/* Cooldown pulse animation */
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-.button.cooldown-pulse {
-    animation: pulse 1s infinite; /* Pulses every second */
-}
-
 /* Add spacing for new sections */
 .power-ups, .automation {
     margin-top: 20px;
 }
 
-.power-ups h2, .automation h2 {
+.power-ups h2, .automation h2, .owned-power-ups h2, .social-actions h2 {
     color: #00ff00;
     font-size: 24px;
-    margin-bottom: 10px;
+    animation: glitch-color 2s infinite alternate;
 }
 
-/* Warning Text */
-.warning {
-    color: #ff0000;
-    font-weight: bold;
-}
-
-/* Glitch Animation for Text */
-@keyframes glitch-flicker {
-    0% { opacity: 1; transform: translate(0, 0); }
-    20% { opacity: 0.8; transform: translate(-1px, 1px); }
-    40% { opacity: 1; transform: translate(1px, -1px); }
-    60% { opacity: 0.9; transform: translate(-1px, -1px); }
-    80% { opacity: 1; transform: translate(1px, 1px); }
-    100% { opacity: 1; transform: translate(0, 0); }
-}
-
-.glitch {
-    animation: glitch-flicker 0.4s infinite alternate;
-}
-
-@keyframes glitch-color {
-    0% { color: #00ff00; }
-    33% { color: #ffdd00; }
-    66% { color: #ff3333; }
-    100% { color: #00ff00; }
-}
-
-.glitch-color {
-    animation: glitch-color 1.5s infinite;
-}
-
-.cooldown-text-ready {
-    color: #ffdd00;
-    font-weight: bold;
-}
 /* Social Actions Section */
 .social-actions {
     margin-top: 20px;
@@ -233,7 +141,6 @@ h1, h2, p {
 }
 
 .social-actions h2 {
-    color: #00ff00;
     font-size: 20px;
     margin-bottom: 10px;
 }
