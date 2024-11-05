@@ -158,6 +158,15 @@ h1, h2, p {
     border-color: #004d00;
 }
 
+/* Disabled Power-Up Button Style */
+.button.disabled {
+    background-color: #333; /* Darker background for unavailable button */
+    color: #555; /* Muted text color */
+    cursor: not-allowed;
+    box-shadow: none;
+    border-color: #333;
+}
+
 /* Cooldown pulse animation */
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
@@ -213,4 +222,39 @@ h1, h2, p {
 .cooldown-text-ready {
     color: #ffdd00;
     font-weight: bold;
+}
+/* Social Actions Section */
+.social-actions {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    text-align: center;
+}
+
+.social-actions h2 {
+    color: #00ff00;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.button.social-action {
+    margin: 10px 0;
+    background-color: #006600;
+    color: #b3ffb3;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button.social-action:hover {
+    background-color: #009900;
+}
+
+/* Disabled social action button after claimed */
+.button.social-action:disabled {
+    background-color: #333;
+    color: #555;
+    cursor: not-allowed;
 }
