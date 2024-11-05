@@ -21,7 +21,13 @@
                  \/__\/      |_| |_|
             </pre>
         </div>
-
+        <!-- Social Rewards Section -->
+        <div class="social-actions">
+            <h2>Earn Nuts Through Social Actions</h2>
+            <button class="button social-action" onclick="earnNutsForAction('twitterFollow')">Follow us on Twitter (+50 Nuts)</button>
+            <button class="button social-action" onclick="earnNutsForAction('telegram')">Join Telegram Group (+75 Nuts)</button>
+            <button class="button social-action" onclick="earnNutsForAction('twitterPost')">Post about $NUTS (+100 Nuts)</button>
+        </div>
         <div class="cyber-info-box glow">
             <p>Initializing bio-digital nuts acorn matrix...</p>
             <p>Loading quantum-nut consciousness harmonics...</p>
@@ -30,7 +36,7 @@
             <p>► Quantum Pnut processor: SYNCED</p>
             <p>► Hyperstitional nut-cache: LOADED</p>
             <p>► Pnut tunnels: ALIGNED</p>
-            <p>► Reality stabilization: 20s cooldown active</p>
+            <p>► Reality stabilization: 5s cooldown active</p>
             <p class="warning">【❗️WARNING❗️】 This Terminut operates on experimental cyber-rodent protocols.</p>
             <p>Side effects may include: temporal loops, acorn obsession, and spontaneous reality bifurcation.</p>
         </div>
@@ -42,16 +48,28 @@
                 <p>Location: Cyber-Oak Node #23</p>
                 <p>Reality Index: 87.3%</p>
                 <p>Quantum-Nut Energy: OPTIMAL</p>
-                <p>Temporal Cooldown: <span id="cooldown">20s</span></p>
+                <p>Temporal Cooldown: <span id="cooldown">5s</span></p>
             </div>
             <button class="button" onclick="increaseNutCount()">Collect Nut</button>
         </div>
 
-        <!-- Power-ups Section -->
+        <!-- Available Power-Ups Section -->
         <div class="power-ups">
-            <h2>Power-Ups</h2>
-            <button class="button" onclick="buyPowerUp('acornHarvester')">Buy Acorn Harvester (Cost: <span id="harvester-cost">10</span> Nuts)</button>
-            <button class="button" onclick="buyPowerUp('quantumProcessor')">Upgrade Quantum Processor (Cost: <span id="processor-cost">50</span> Nuts)</button>
+            <h2>Available Power-Ups</h2>
+            <button class="button power-up" id="acornHarvester" onclick="buyPowerUp('acornHarvester')">Acorn Harvester (+1/click) - Cost: <span id="harvester-cost">10</span> Nuts</button>
+            <button class="button power-up" id="quantumProcessor" onclick="buyPowerUp('quantumProcessor')">Quantum Processor (+1/s) - Cost: <span id="processor-cost">50</span> Nuts</button>
+            <button class="button power-up" id="squirrelScout" onclick="buyPowerUp('squirrelScout')">Squirrel Scout (+5/s) - Cost: <span id="scout-cost">200</span> Nuts</button>
+            <button class="button power-up" id="treePlanter" onclick="buyPowerUp('treePlanter')">Tree Planter (+20/s) - Cost: <span id="planter-cost">1000</span> Nuts</button>
+            <button class="button power-up" id="nutVault" onclick="buyPowerUp('nutVault')">Nut Vault (+50/s) - Cost: <span id="vault-cost">5000</span> Nuts</button>
+            <button class="button power-up" id="forestGuardian" onclick="buyPowerUp('forestGuardian')">Forest Guardian (+100/s) - Cost: <span id="guardian-cost">15000</span> Nuts</button>
+        </div>
+
+        <!-- Owned Power-Ups Section -->
+        <div class="owned-power-ups">
+            <h2>Owned Power-Ups</h2>
+            <div id="owned-list">
+                <!-- Dynamically populated with owned power-ups -->
+            </div>
         </div>
 
         <!-- Automation Upgrades Section -->
